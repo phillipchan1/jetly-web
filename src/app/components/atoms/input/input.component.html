@@ -1,0 +1,2 @@
+<input (keyup.enter)="submit($event)" [(ngModel)]="textValue" placeholder="{{placeholderText}}" (blur)="inputBlur($event)"
+    (keyup)="valueChange($event)" type="text" #todoInput />

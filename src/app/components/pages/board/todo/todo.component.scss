@@ -1,0 +1,29 @@
+:host {
+	background: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+	border-radius: 0.3em;
+	box-sizing: border-box;
+	display: block;
+	font-weight: 400;
+	margin: 0.5em 0 1em;
+	padding: 0.75em 0 0.75em 3em;
+	position: relative;
+	width: 100%;
+
+	.todo-name {
+		&:hover {
+			border-bottom: 1px solid rgb(182, 182, 225);
+			cursor: text;
+		}
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	&:hover {
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+		cursor: pointer;
+	}
+}

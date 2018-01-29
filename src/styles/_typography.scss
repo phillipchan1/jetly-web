@@ -1,0 +1,105 @@
+/*
+	Table of Contents
+	1. General
+	2. Utility Classes
+	3. Buttons
+
+   ----------------------------- */
+html {
+	overflow: hidden;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* General */
+body {
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	font-size: $bodyFontSize;
+	margin: 0;
+}
+
+a {
+	font-weight: 400;
+	text-decoration: none;
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: inherit;
+		cursor: pointer;
+		text-decoration: none;
+	}
+
+	&:hover {
+		color: $grayBlueDark;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	color: #5c6062;
+	font-weight: 600;
+	margin-bottom: $standardSpacing;
+}
+
+h1 {
+	font-size: 1.75em;
+}
+
+/* Utility Classes */
+.font {
+	&.small {
+		font-size: 0.8em;
+	}
+
+	&.normal {
+		font-size: 1em;
+	}
+
+	&.medium {
+		font-size: 1.2em;
+	}
+
+	&.large {
+		font-size: 3em;
+	}
+
+	&.weight-thin {
+		font-weight: 100;
+	}
+
+	&.weight-normal {
+		font-weight: 300;
+	}
+
+	&.weight-bold {
+		font-weight: 400;
+	}
+
+	&.weight-heavy {
+		font-weight: 700;
+	}
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.title {
+	color: #333946;
+	font-size: 1.2em;
+	font-weight: 500;
+}
+
+.panel-title {
+	display: block;
+	font-size: 0.8em;
+	font-weight: bold;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	width: 100%;
+}

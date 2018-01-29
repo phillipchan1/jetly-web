@@ -1,0 +1,14 @@
+<nav class="no-padding">
+	<div class="page-info">
+		<app-logo [fontSize]="'23'"></app-logo>
+	</div>
+	<div class="page-menu">
+		<a routerLink="/review">Review</a>
+		<a routerLink="/board">Board</a>
+		<a routerLink="/plan">Plan</a>
+	</div>
+	<div class="user-menu">
+		<!-- <button>New Todo</button> -->
+		<a (click)="logout() ">Logout</a>
+	</div>
+</nav>

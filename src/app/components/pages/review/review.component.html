@@ -1,0 +1,19 @@
+<div class="recently-completed">
+	<aside>
+		<header class="title">
+			Completed Today
+		</header>
+		<aside *ngFor="let todo of todos | async | todoCompletedOn:'today'">
+			{{todo.name}}
+		</aside>
+	</aside>
+
+	<aside>
+		<header class="title">
+			Completed Yesterday
+		</header>
+		<aside *ngFor="let todo of todos | async | todoCompletedOn:'yesterday'">
+			{{todo.name}}
+		</aside>
+	</aside>
+</div>

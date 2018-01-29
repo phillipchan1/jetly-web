@@ -1,0 +1,53 @@
+:host {
+  background: #f5f6fb;
+  display: block;
+  height: 300px;
+  min-height: 100vh;
+  overflow: scroll;
+  padding: 0 8em 3em;
+}
+
+.lanes-container {
+  display: flex;
+  margin-bottom: 100px;
+
+  .lane {
+    background: #fff;
+    border-radius: 0.25em;
+    box-shadow: 0 0 1em #efefef;
+    flex: 1 auto;
+    margin: 1em;
+    padding: 1em;
+    width: 25%;
+
+    header {
+      padding: 0.5em 0;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .todo-container {
+    min-height: 100px;
+    margin-bottom: 0.5em;
+  }
+}
+
+.add-todo {
+  width: 100%;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 0.5em;
+}
+
+.edit-todo-container {
+  background: #fff;
+  width: 300px;
+  position: absolute;
+  height: 300px;
+}
