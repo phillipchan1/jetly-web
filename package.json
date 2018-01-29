@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
@@ -21,12 +21,8 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
-    "angular-calendar": "^0.23.3",
-    "angularfire2": "^5.0.0-rc.6",
     "core-js": "^2.4.1",
-    "firebase": "^4.9.0",
-    "ng-click-outside": "^3.2.0",
-    "ng2-dragula": "^1.5.0",
+    "angularfire2": "^5.0.0-rc.3",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },
