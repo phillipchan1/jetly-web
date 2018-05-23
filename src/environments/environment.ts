@@ -6,7 +6,7 @@
 export const environment = {
 	production: false,
 	firebase: {
-		apiKey: 'AIzaSyC1M3Kr7cXwY7MXfXtK0DyGjuzgr2u89Og ',
+		apiKey: 'AIzaSyC1M3Kr7cXwY7MXfXtK0DyGjuzgr2u89Og',
 		authDomain: 'jetly-186ed.firebaseapp.com',
 		databaseURL: 'https://jetly-186ed.firebaseio.com',
 		projectId: 'jetly-186ed',

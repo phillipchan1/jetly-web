@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
 	login() {
 		this.afAuth.auth
-			.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+			.signInWithRedirect(new firebase.auth.GoogleAuthProvider())
 			.then(user => {
 				this.authService.setUser(user.user.uid);
 			})
