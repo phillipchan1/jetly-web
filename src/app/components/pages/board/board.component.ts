@@ -22,7 +22,7 @@ export class BoardComponent implements OnInit {
 	inProgressFilter = { lane: 'in progress', complete: false };
 	onHoldFilter = { lane: 'on hold', complete: false };
 	completeFilter = { lane: 'complete', complete: true };
-	currentlyEditingThisTodo = {};
+	currentlyEditingThisTodo: Todo;
 
 	constructor(
 		public db: AngularFirestore,
