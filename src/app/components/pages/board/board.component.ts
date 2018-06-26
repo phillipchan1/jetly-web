@@ -22,6 +22,7 @@ export class BoardComponent implements OnInit {
 	inProgressFilter = { lane: 'in progress', complete: false };
 	onHoldFilter = { lane: 'on hold', complete: false };
 	completeFilter = { lane: 'complete', complete: true };
+	currentlyEditingThisTodo = {};
 
 	constructor(
 		public db: AngularFirestore,
@@ -83,14 +84,24 @@ export class BoardComponent implements OnInit {
 	}
 
 	private showEditTodo(todo, event) {
-		console.log(event);
+		var currentTodo = JSON.parse(event.target.getAttribute('data-todo')) || JSON.parse(event.target.parentNode.getAttribute('data-todo'));
+		console.log(currentTodo);
+
+		var readableCreatedOnDateObject = new Date(currentTodo.createdOn);
+		currentTodo.displayCreatedOnDate = `${readableCreatedOnDateObject.getMonth() + 1}/${readableCreatedOnDateObject.getDate()}/${readableCreatedOnDateObject.getFullYear()}`;
+
 		this.editTodoLeft = this.calculateLeft(event.target);
 		this.editTodoTop = this.calculateTop(event.target);
 		this.editingTodo = true;
+		this.currentlyEditingThisTodo = currentTodo
 	}
 
-	private hideEditTodo() {
-		this.editingTodo = false;
+	private hideEditTodo(event) {
+		var editTodo = document.querySelector('.edit-todo-container');
+
+		if (!editTodo.contains(event.target)) {
+			this.editingTodo = false;
+		}
 	}
 
 	private hideNewTodo(event) {

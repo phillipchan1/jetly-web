@@ -1,12 +1,12 @@
 <header class="standard-padding-horizontal">
     <h1>Daily To Do</h1>
 </header>
-<div class="lanes-container">
+<div class="lanes-container" (window:mouseup)="hideEditTodo($event)">
     <article class="lane">
         <header class="title">To Do</header>
 
         <div class="todo-container" data-lane="todo" [dragula]="'todo-bag'">
-            <todo (clickOutside)="hideEditTodo()" (dblclick)="showEditTodo(todo, $event)" [attr.data-todo]=" JSON.stringify(todo) " [todo]="todo "
+            <todo class="todo" (dblclick)="showEditTodo(todo, $event)" [attr.data-todo]="JSON.stringify(todo)" [todo]="todo "
                 *ngFor="let todo of todos | async | laneFilter:todoFilter">
             </todo>
         </div>
@@ -18,7 +18,7 @@
     <article class="lane ">
         <header class="title ">In Progress</header>
         <div class="todo-container" data-lane="in progress" [dragula]="'todo-bag'">
-            <todo (clickOutside)="hideEditTodo()" (dblclick)="showEditTodo(todo, $event)" [attr.data-todo]=" JSON.stringify(todo) " [todo]="todo "
+            <todo class="todo" (dblclick)="showEditTodo(todo, $event)" [attr.data-todo]=" JSON.stringify(todo) " [todo]="todo "
                 *ngFor="let todo of todos | async | laneFilter:inProgressFilter">
             </todo>
         </div>
@@ -26,7 +26,7 @@
     <article class="lane ">
         <header class="title ">Oh Hold</header>
         <div class="todo-container" data-lane="on hold" [dragula]="'todo-bag'">
-            <todo (clickOutside)="hideEditTodo()" (dblclick)="showEditTodo(todo, $event)" [attr.data-todo]=" JSON.stringify(todo) " [todo]="todo "
+            <todo class="todo" (dblclick)="showEditTodo(todo, $event)" [attr.data-todo]=" JSON.stringify(todo)" [todo]="todo"
                 *ngFor="let todo of todos | async | laneFilter:onHoldFilter">
             </todo>
         </div>
@@ -49,13 +49,25 @@
             </a>
         </header>
         <div class="todo-container" data-lane="complete" [dragula]="'todo-bag'">
-            <todo (clickOutside)="hideEditTodo()" (dblclick)="showEditTodo(todo, $event)" [attr.data-todo]=" JSON.stringify(todo) " [todo]="todo "
+            <todo class="todo" (dblclick)="showEditTodo(todo, $event)" [attr.data-todo]=" JSON.stringify(todo) " [todo]="todo "
                 *ngFor="let todo of todos | async | laneFilter:completeFilter">
             </todo>
         </div>
     </article>
 </div>
 
-<aside [ngStyle]="{'left': editTodoLeft, 'top': editTodoTop}" class="edit-todo-container" *ngIf="editingTodo">
-    editing todo
+<aside [ngStyle]="{'left': editTodoLeft, 'top': editTodoTop}" class="edit-todo-container" [hidden]="!editingTodo">
+    <header>
+        <h2>{{currentlyEditingThisTodo.name}}</h2>
+
+        <div class="description" contenteditable="true" placeholder="Write a description">
+            {{currentlyEditingThisTodo.description}}
+        </div>
+    </header>
+    <table>
+        <tr>
+            <td>Created On:</td>
+            <td>{{currentlyEditingThisTodo.displayCreatedOnDate}}</td>
+        </tr>
+    </table>
 </aside>

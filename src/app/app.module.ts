@@ -7,7 +7,7 @@ import { AngularFirestoreModule } from "angularfire2/firestore";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { environment } from "../environments/environment";
 import { DragulaModule } from "ng2-dragula";
-import { ClickOutsideModule } from "ng-click-outside";
+import { ClickOutsideModule } from "ng4-click-outside";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CalendarModule } from "angular-calendar";
 
