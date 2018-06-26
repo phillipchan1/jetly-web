@@ -96,7 +96,7 @@ export class BoardComponent implements OnInit {
 		this.currentlyEditingThisTodo = currentTodo
 	}
 
-	private hideEditTodo(event) {
+	public hideEditTodo(event) {
 		var editTodo = document.querySelector('.edit-todo-container');
 
 		if (!editTodo.contains(event.target)) {
