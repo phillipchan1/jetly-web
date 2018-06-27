@@ -14,11 +14,15 @@
 	.lane {
 		background: #fff;
 		border-radius: 0.25em;
-		box-shadow: 0 0 1em #efefef;
+		box-shadow: 0 0 1em rgba(0, 0, 0, 0.05);
 		flex: 1 auto;
-		margin: 1em;
+		margin: 0.5em;
 		padding: 1em;
 		width: 25%;
+
+		&.todo-hovering-over {
+			box-shadow: 0 0 1em rgba(0, 0, 0, 0.15);
+		}
 
 		header {
 			padding: 0.5em 0;

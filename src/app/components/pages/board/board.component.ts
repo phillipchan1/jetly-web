@@ -54,6 +54,18 @@ export class BoardComponent implements OnInit {
 				});
 			}
 		});
+
+		dragulaService.over.subscribe((value) => {
+		  	let container = value[2];
+
+		  	container.parentNode.classList.add('todo-hovering-over');
+	  	});
+
+		dragulaService.out.subscribe((value) => {
+			let container = value[2];
+
+		  	container.parentNode.classList.remove('todo-hovering-over');
+		});
 	}
 
 	archiveComplete(event) {
