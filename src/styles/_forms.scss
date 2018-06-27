@@ -1,0 +1,10 @@
+input, textarea {
+	border: 0;
+	background: transparent;
+	font-size: $bodyFontSize;
+	padding: 0.5em;
+}
+
+textarea:focus, input:focus{
+	outline: none;
+}

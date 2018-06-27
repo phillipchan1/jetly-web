@@ -1,0 +1,14 @@
+<form class="edit-todo-container" (change)="onFormChange()">
+    <header>
+        <textarea class="name" [(ngModel)]="todo && todo.name" name="name"></textarea>
+
+        <textarea class="description" placeholder="Write a description" [(ngModel)]="todo && todo.description" name="description"></textarea>
+    </header>
+
+    <table>
+        <tr>
+            <td>Created On:</td>
+            <td>{{todo?.createdOn}}</td>
+        </tr>
+    </table>
+</form>

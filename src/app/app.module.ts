@@ -10,6 +10,7 @@ import { DragulaModule } from "ng2-dragula";
 import { ClickOutsideModule } from "ng4-click-outside";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CalendarModule } from "angular-calendar";
+import { ContenteditableDirective } from 'ng-contenteditable';
 
 // filters
 import { LaneFilter } from "./filters/lane.filter";
@@ -36,6 +37,7 @@ import { InputComponent } from "./components/atoms/input/input.component";
 import { OathComponent } from "./components/atoms/buttons/oath/oath.component";
 import { CalendarComponent } from "./components/molecules/calendar/calendar.component";
 import { LogoComponent } from './components/atoms/logo/logo.component';
+import { AddEditTodoComponent } from './components/molecules/add-edit-todo/add-edit-todo.component';
 
 const appRoutes: Routes = [
   {
@@ -78,7 +80,9 @@ const appRoutes: Routes = [
     InputComponent,
     OathComponent,
     CalendarComponent,
-    LogoComponent
+    LogoComponent,
+    AddEditTodoComponent,
+    ContenteditableDirective
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

@@ -1,6 +1,7 @@
 <header class="standard-padding-horizontal">
     <h1>Daily To Do</h1>
 </header>
+
 <div class="lanes-container" (window:mouseup)="hideEditTodo($event)">
     <article class="lane">
         <header class="title">To Do</header>
@@ -31,8 +32,8 @@
             </todo>
         </div>
     </article>
-    <article class="complete lane ">
-        <header class="title ">
+    <article class="complete lane">
+        <header class="title">
             Complete
             <a (click)="archiveComplete($event) ">
                 <svg baseProfile="tiny" height="24px" version="1.2" viewBox="0 0 24 24" width="24px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +57,9 @@
     </article>
 </div>
 
-<aside [ngStyle]="{'left': editTodoLeft, 'top': editTodoTop}" class="edit-todo-container" [hidden]="!editingTodo">
+<add-edit-todo [ngStyle]="{'left': editTodoLeft, 'top': editTodoTop}" [(todo)]="currentlyEditingThisTodo" [hidden]="!editingTodo"></add-edit-todo>
+
+<!-- <aside [ngStyle]="{'left': editTodoLeft, 'top': editTodoTop}" class="edit-todo-container" [hidden]="!editingTodo">
     <header>
         <h2>{{currentlyEditingThisTodo?.name}}</h2>
 
@@ -70,4 +73,4 @@
             <td>{{currentlyEditingThisTodo?.createdOn}}</td>
         </tr>
     </table>
-</aside>
+</aside> -->

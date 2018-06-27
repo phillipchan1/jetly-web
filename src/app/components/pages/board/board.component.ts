@@ -8,6 +8,7 @@ import { DragulaService } from 'ng2-dragula';
 
 @Component({
 	selector: 'app-board',
+	host: { '(window:keydown)': 'hotkeys($event)' },
 	templateUrl: './board.component.html',
 	styleUrls: ['./board.component.scss']
 })
@@ -119,6 +120,12 @@ export class BoardComponent implements OnInit {
 	private hideNewTodo(event) {
 		this.addingNewTodo = false;
 	}
+
+	hotkeys(event) {
+	    if (event.key === 'Escape') {
+	    	this.editingTodo = false;
+	    }
+  	}
 
 	showNewTodoInput() {
 		this.addingNewTodo = true;
