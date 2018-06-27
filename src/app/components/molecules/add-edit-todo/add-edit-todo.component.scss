@@ -1,18 +1,43 @@
+.edit-todo-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 
-input, textarea {
-	width: 100%;
-}
-
-textarea {
-	padding: 0;
-	resize: none;
-
-	&[name="name"] {
-		font-size: 1.5em;
-		height: 1.5em;
+	input, textarea {
+		width: 100%;
 	}
 
-	&[name="description"] {
-		opacity: 0.7;
+	textarea {
+		padding: 0;
+		resize: none;
+
+		&[name="name"] {
+			font-size: 1.5em;
+			height: 1.5em;
+		}
+
+		&[name="description"] {
+			opacity: 0.7;
+		}
+	}
+
+	table {
+		tr {
+			td:first-child {
+				font-weight: bold;
+				text-align: right;
+			}
+		}
+	}
+
+	section.notes {
+		border-top: 1px solid rgba(0, 0, 0, 0.2);
+		padding: 0.5em 0;
+		margin-top: 2em;
+	}
+
+	section.actions {
+		display: flex;
+		justify-content: center;
 	}
 }

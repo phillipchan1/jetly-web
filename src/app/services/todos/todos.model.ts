@@ -4,6 +4,7 @@ export class Todo {
 	createdOn: number;
 	id?: string;
 	name: string;
+	notes?: string;
 	description?: string;
 	difficulty?: number;
 	lane: string;

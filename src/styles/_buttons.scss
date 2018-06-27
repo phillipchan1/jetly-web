@@ -1,0 +1,12 @@
+.btn {
+    &.btn-subtle {
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 0.8em;
+        letter-spacing: 1px;
+    }
+
+    &.warn {
+        color: $warnRed;
+    }
+}

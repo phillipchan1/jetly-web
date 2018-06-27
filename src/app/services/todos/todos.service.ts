@@ -23,6 +23,10 @@ export class TodosService {
 		this.todosCollection.add(todo);
 	}
 
+	deleteTodo(docId) {
+		this.todosCollection.doc(docId).delete();
+	}
+
 	completeTodo(docId):void {
 		this.updateTodo(docId, {
 			complete: true,

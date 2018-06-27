@@ -117,6 +117,10 @@ export class BoardComponent implements OnInit {
 		}
 	}
 
+	public onDeleteTodo() {
+		this.editingTodo = false;
+	}
+
 	private hideNewTodo(event) {
 		this.addingNewTodo = false;
 	}

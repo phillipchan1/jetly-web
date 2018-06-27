@@ -1,14 +1,26 @@
 <form class="edit-todo-container" (change)="onFormChange()">
-    <header>
-        <textarea class="name" [(ngModel)]="todo && todo.name" name="name"></textarea>
+	<header>
+		<textarea class="name" [(ngModel)]="todo && todo.name" name="name"></textarea>
 
-        <textarea class="description" placeholder="Write a description" [(ngModel)]="todo && todo.description" name="description"></textarea>
-    </header>
+		<textarea class="description" placeholder="Write a description" [(ngModel)]="todo && todo.description" name="description"></textarea>
+	</header>
 
-    <table>
-        <tr>
-            <td>Created On:</td>
-            <td>{{todo?.createdOn}}</td>
+	<table>
+		<tr>
+			<td>Created On:</td>
+			<td>{{todo?.createdOn}}</td>
+		</tr>
+		<tr>
+            <td>Start Working On:</td>
+            <td>{{todo?.startOn}}</td>
         </tr>
-    </table>
+	</table>
+
+	<section class="notes">
+		<textarea placeholder="Notes" class="notes" [(ngModel)]="todo && todo.notes" name="notes"></textarea>
+	</section>
+
+	<section class="actions">
+		<a class="btn btn-subtle warn" href="javascript:;" (click)="deleteTodo(todo.id)">Delete Task</a>
+	</section>
 </form>
