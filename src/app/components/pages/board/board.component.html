@@ -58,19 +58,3 @@
 </div>
 
 <add-edit-todo [ngStyle]="{'left': editTodoLeft, 'top': editTodoTop}" [(todo)]="currentlyEditingThisTodo" [hidden]="!editingTodo" (onChange)="onDeleteTodo()"></add-edit-todo>
-
-<!-- <aside [ngStyle]="{'left': editTodoLeft, 'top': editTodoTop}" class="edit-todo-container" [hidden]="!editingTodo">
-    <header>
-        <h2>{{currentlyEditingThisTodo?.name}}</h2>
-
-        <div class="description" contenteditable="true" placeholder="Write a description">
-            {{currentlyEditingThisTodo?.description}}
-        </div>
-    </header>
-    <table>
-        <tr>
-            <td>Created On:</td>
-            <td>{{currentlyEditingThisTodo?.createdOn}}</td>
-        </tr>
-    </table>
-</aside> -->

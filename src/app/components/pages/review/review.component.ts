@@ -4,7 +4,6 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Todo } from '../../../services/todos/todos.model';
 import { AuthService } from '../../../services/auth/auth.service';
-import { DateUtilsService } from '../../../services/utils/date-utils.service';
 
 @Component({
 	selector: 'app-review',
@@ -17,7 +16,6 @@ export class ReviewComponent implements OnInit {
 	constructor(
 		public db: AngularFirestore,
 		public authService: AuthService,
-		public dateUtils: DateUtilsService,
 		public todoService: TodosService
 	) {
 		this.todos = db

@@ -22,6 +22,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { TodosService } from "./services/todos/todos.service";
 import { AuthService } from "./services/auth/auth.service";
 import { DateUtilsService } from "./services/utils/date-utils.service";
+import { PositionUtilsService } from "./services/utils/position-utils.service";
 import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
@@ -97,7 +98,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [AuthService, TodosService, DateUtilsService],
+  providers: [AuthService, TodosService, DateUtilsService, PositionUtilsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

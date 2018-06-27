@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Todo } from '../../../services/todos/todos.model';
 import { AuthService } from '../../../services/auth/auth.service';
+import { PositionUtilsService } from '../../../services/utils/position-utils.service';
 import { DragulaService } from 'ng2-dragula';
 
 @Component({
@@ -28,6 +29,7 @@ export class BoardComponent implements OnInit {
 	constructor(
 		public db: AngularFirestore,
 		public authService: AuthService,
+		public positionUtils: PositionUtilsService,
 		public todoService: TodosService,
 		private dragulaService: DragulaService
 	) {
@@ -55,6 +57,8 @@ export class BoardComponent implements OnInit {
 				});
 			}
 		});
+
+		this.positionUtils.shout()
 
 		dragulaService.over.subscribe((value) => {
 		  	let container = value[2];
@@ -86,25 +90,12 @@ export class BoardComponent implements OnInit {
 		});
 	}
 
-	private calculateLeft(el) {
-		return `${el.offsetLeft + el.offsetWidth}px`;
-	}
-
-	private calculateTop(el) {
-		const inTheMiddleHeight = el.offsetTop + el.offsetHeight / 4;
-
-		return `${inTheMiddleHeight}px`;
-	}
-
 	private showEditTodo(todo, event) {
 		var currentTodo = JSON.parse(event.target.getAttribute('data-todo')) || JSON.parse(event.target.parentNode.getAttribute('data-todo'));
 		console.log(currentTodo);
 
-		var readableCreatedOnDateObject = new Date(currentTodo.createdOn);
-		currentTodo.displayCreatedOnDate = `${readableCreatedOnDateObject.getMonth() + 1}/${readableCreatedOnDateObject.getDate()}/${readableCreatedOnDateObject.getFullYear()}`;
-
-		this.editTodoLeft = this.calculateLeft(event.target);
-		this.editTodoTop = this.calculateTop(event.target);
+		this.editTodoLeft = this.positionUtils.calculateLeft(event.target);
+		this.editTodoTop = this.positionUtils.calculateTop(event.target);
 		this.editingTodo = true;
 		this.currentlyEditingThisTodo = currentTodo
 	}
