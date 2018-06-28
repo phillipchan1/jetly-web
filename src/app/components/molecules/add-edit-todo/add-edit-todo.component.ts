@@ -7,11 +7,12 @@ import {
 	AngularFirestoreDocument,
 	AngularFirestoreCollection
 } from 'angularfire2/firestore';
+import { HotkeysService, Hotkey } from 'angular2-hotkeys';
 
 @Component({
 	selector: "add-edit-todo",
 	templateUrl: "./add-edit-todo.component.html",
-	host: { '(window:keydown)': 'hotkeys($event)' },
+	host: { '(window:keyup)': 'hotkeys($event)' },
 	styleUrls: ["./add-edit-todo.component.scss"]
 })
 export class AddEditTodoComponent implements OnInit {
@@ -23,8 +24,14 @@ export class AddEditTodoComponent implements OnInit {
 	constructor(
 		public todoService: TodosService,
 		public authService: AuthService,
-		private afs: AngularFirestore
-		) {}
+		private afs: AngularFirestore,
+		private _hotkeysService: HotkeysService
+		) {
+		this._hotkeysService.add(new Hotkey('meta+enter', (event: KeyboardEvent): boolean => {
+
+	        return false; // Prevent bubbling
+	    }));
+	}
 
 	deleteTodo(docId) {
 		this.todoService.deleteTodo(docId);
@@ -37,7 +44,7 @@ export class AddEditTodoComponent implements OnInit {
 		}
 	}
 
-	handleNewTodo() {
+	addNewTodo() {
 		const newTodo = Object.assign({
 			onBoard: true,
 			complete: false,
@@ -58,9 +65,9 @@ export class AddEditTodoComponent implements OnInit {
 	}
 
 	hotkeys(event) {
-
 	}
 
 	ngOnInit() {
+
 	}
 }

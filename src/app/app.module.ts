@@ -11,6 +11,7 @@ import { ClickOutsideModule } from "ng4-click-outside";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CalendarModule } from "angular-calendar";
 import { ContenteditableDirective } from 'ng-contenteditable';
+import { HotkeyModule } from 'angular2-hotkeys';
 
 // filters
 import { LaneFilter } from "./filters/lane.filter";
@@ -97,6 +98,7 @@ const appRoutes: Routes = [
     ClickOutsideModule,
     DragulaModule,
     FormsModule,
+    HotkeyModule.forRoot(),
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],

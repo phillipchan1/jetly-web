@@ -1,8 +1,10 @@
 <form class="edit-todo-container" (change)="onFormChange()">
 	<header>
-		<textarea class="name" [(ngModel)]="todo && todo.name" name="name"></textarea>
+		<textarea class="mousetrap name" [(ngModel)]="todo && todo.name" name="name"></textarea>
 
-		<textarea class="description" placeholder="Write a description" [(ngModel)]="todo && todo.description" name="description"></textarea>
+		{{todo?.name}}
+
+		<textarea class="description mousetrap" placeholder="Write a description" [(ngModel)]="todo && todo.description" name="description"></textarea>
 	</header>
 
 	<table>
@@ -17,12 +19,12 @@
 	</table>
 
 	<section class="notes">
-		<textarea placeholder="Notes" class="notes" [(ngModel)]="todo && todo.notes" name="notes"></textarea>
+		<textarea class="mousetrap notes" [(ngModel)]="todo && todo.notes" name="notes" placeholder="Notes"></textarea>
 	</section>
 
 	<section class="actions">
 		<a *ngIf="todo?.id" class="btn btn-subtle warn" href="javascript:;" (click)="deleteTodo(todo.id)">Delete Task</a>
-		<button *ngIf="!todo?.id" (click)="handleNewTodo()">Add Todo</button>
+		<button *ngIf="!todo?.id" (click)="addNewTodo()">Add Todo</button>
 		<span class="footnote">Press Enter to Save</span>
 	</section>
 </form>

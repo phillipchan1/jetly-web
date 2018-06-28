@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
-import { ClickOutsideModule } from 'ng4-click-outside';
+
 
 @Component({
 	selector: 'app-root',
@@ -14,7 +14,7 @@ import { ClickOutsideModule } from 'ng4-click-outside';
 export class AppComponent {
 	loggedIn: boolean = false;
 	public editingTodo: boolean = false;
-	private modalActive: boolean = false;
+	public modalActive: boolean = false;
 
 	public activateModal() {
 		this.modalActive = true;
@@ -24,7 +24,10 @@ export class AppComponent {
 		this.modalActive = false;
 	}
 
-	constructor(private router: Router, public afAuth: AngularFireAuth) {
+	constructor(
+		private router: Router,
+		public afAuth: AngularFireAuth
+	) {
 		this.afAuth.authState.subscribe(res => {
 			if (!res || !res.uid) {
 				this.router.navigate(['/login']);
