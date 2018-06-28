@@ -10,7 +10,7 @@ export class Todo {
 	lane: string;
 	onBoard: boolean;
 	previousLane: string;
-	startOn: number;
+	scheduledFor: number;
 	timeSpentinProgress?: number;
 	userId?: string;
 }

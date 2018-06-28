@@ -49,7 +49,7 @@ export class AddEditTodoComponent implements OnInit {
 				lane: "todo",
 				notes: this.todo.notes || '',
 				previousLane: "",
-				startOn: Date.now(),
+				scheduledFor: (new Date(this.todo.scheduledFor).getTime()) || Date.now(),
 				timeSpentinProgress: 0,
 				userId: this.authService.getUser().uid
 			};

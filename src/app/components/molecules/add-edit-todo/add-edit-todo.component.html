@@ -10,9 +10,9 @@
 			<td>Created On:</td>
 			<td>{{todo?.createdOn | date :'shortDate'}}</td>
 		</tr>
-		<tr *ngIf="todo?.id">
-            <td>Start Working On:</td>
-            <td>{{todo?.startOn | date :'shortDate'}}</td>
+		<tr>
+            <td>Scheduled For:</td>
+            <td><input type="date" name="startOn" (ngModelChange)="todo.scheduledFor = $event" [ngModel]="todo && todo.scheduledFor | date:'yyyy-MM-dd'" /></td>
         </tr>
 	</table>
 

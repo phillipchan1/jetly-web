@@ -35,7 +35,7 @@ export class NewTodoComponent implements OnInit {
 			lane: "todo",
 			notes: "",
 			previousLane: "",
-			startOn: Date.now(),
+			scheduledFor: Date.now(),
 			timeSpentinProgress: 0,
 			userId: this.authService.getUser().uid
 		};
