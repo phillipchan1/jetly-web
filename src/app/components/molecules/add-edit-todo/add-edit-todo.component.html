@@ -6,11 +6,11 @@
 	</header>
 
 	<table>
-		<tr>
+		<tr *ngIf="todo?.id">
 			<td>Created On:</td>
 			<td>{{todo?.createdOn}}</td>
 		</tr>
-		<tr>
+		<tr *ngIf="todo?.id">
             <td>Start Working On:</td>
             <td>{{todo?.startOn}}</td>
         </tr>
@@ -21,6 +21,8 @@
 	</section>
 
 	<section class="actions">
-		<a class="btn btn-subtle warn" href="javascript:;" (click)="deleteTodo(todo.id)">Delete Task</a>
+		<a *ngIf="todo?.id" class="btn btn-subtle warn" href="javascript:;" (click)="deleteTodo(todo.id)">Delete Task</a>
+		<button *ngIf="!todo?.id" (click)="handleNewTodo()">Add Todo</button>
+		<span class="footnote">Press Enter to Save</span>
 	</section>
 </form>

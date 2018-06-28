@@ -47,21 +47,12 @@ export class AppComponent {
 	}
 
 	hotkeys(event) {
-		// if (event.key === 'a') {
-		// 	this.router.navigate(['/review']);
-		// }
-		// if (event.key === 's') {
-		// 	this.router.navigate(['/board']);
-		// }
-		// if (event.key === 'd') {
-		// 	this.router.navigate(['/plan']);
-		// }
 		if (event.key === 'c') {
 			this.handleNewTodo();
 		}
 
 		if (event.key === 'Escape') {
-			this.hideEditTodo();
+			this.hideEditTodo(null);
 		}
 	}
 }
