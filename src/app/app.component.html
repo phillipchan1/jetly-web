@@ -2,5 +2,5 @@
 	<app-nav (newTodo)="handleNewTodo()" *ngIf="loggedIn"></app-nav>
 	<router-outlet></router-outlet>
 
-	<add-edit-todo id="global-add-edit-todo" [hidden]="!editingTodo" (onSubmitted)="hideEditTodo()"></add-edit-todo>
+	<add-edit-todo id="global-add-edit-todo" [hidden]="!editingTodo" (onSubmitted)="hideEditTodo($event)"></add-edit-todo>
 </div>

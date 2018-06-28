@@ -38,7 +38,7 @@ export class AppComponent {
 	handleNewTodo() {
 		this.editingTodo = true;
 
-		var editTodoName = document.querySelector('#global-add-edit-todo .name');
+		var editTodoName = <HTMLElement>document.querySelector('#global-add-edit-todo textarea.name');
 		console.log(editTodoName);
 
 		setTimeout(function() {

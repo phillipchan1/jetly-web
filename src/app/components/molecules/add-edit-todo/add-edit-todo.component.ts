@@ -18,6 +18,7 @@ export class AddEditTodoComponent implements OnInit {
 	@Input() todo: Todo = <Todo>{};
 	@Output() onChange = new EventEmitter<boolean>();
 	@Output() onSubmitted = new EventEmitter<boolean>();
+	private todosCollection: AngularFirestoreCollection<Todo>;
 
 	constructor(
 		public todoService: TodosService,
