@@ -1,3 +1,5 @@
+@import '../../../../styles/variables';
+
 nav {
 	background: #FFF;
 	border-bottom: 1px solid #efefef;
@@ -28,8 +30,13 @@ nav {
 		}
 	}
 
-	.user-menu {
+	.auxiliary-menu {
+		align-items: center;
 		display: flex;
 		justify-content: flex-end;
+
+		plus-button {
+			margin-right: 1em;
+		}
 	}
 }

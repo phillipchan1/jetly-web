@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 
@@ -8,6 +8,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 	styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
+	@Output() newTodo = new EventEmitter<boolean>();
+
 	constructor(
 		private route: ActivatedRoute,
 		private router: Router,
@@ -18,6 +20,10 @@ export class NavComponent implements OnInit {
 		this.afAuth.auth.signOut().then(() => {
 			location.reload();
 		});
+	}
+
+	handleNewTodo() {
+		this.newTodo.emit(true);
 	}
 
 	ngOnInit() {}

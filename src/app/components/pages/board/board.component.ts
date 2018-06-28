@@ -95,6 +95,8 @@ export class BoardComponent implements OnInit {
 
 		var element;
 
+		var padding = 10;
+
 		if (event.target.nodeName === "SPAN") {
 			element = event.target.parentNode;
 		} else {
@@ -104,11 +106,11 @@ export class BoardComponent implements OnInit {
 		var elementRect = element.getBoundingClientRect();
 
 		if (this.positionUtils.closerToLeftorRightofScreen(event.target) === 'left') {
-			this.editTodoLeft = `${elementRect.left + elementRect.width}px`;
+			this.editTodoLeft = `${elementRect.left + elementRect.width + padding}px`;
 			this.editTodoRight = 'auto';
 		} else {
 			this.editTodoLeft = 'auto';
-			this.editTodoRight = `${window.innerWidth - elementRect.left}px`;
+			this.editTodoRight = `${window.innerWidth - elementRect.left + padding}px`;
 		}
 
 		if (this.positionUtils.closerToToporBottomofScreen(element) === 'top') {

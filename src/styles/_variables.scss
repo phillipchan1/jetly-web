@@ -61,3 +61,15 @@ $break-large: 1024px;
 		}
 	}
 }
+
+/* ---------- z-index ---------- */
+
+$z-index: (
+  modal              : 200,
+  navigation         : 100,
+  footer             : 90,
+  triangle           : 60,
+  navigation-rainbow : 50,
+  share-type         : 41,
+  share              : 40,
+);

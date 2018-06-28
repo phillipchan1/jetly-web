@@ -51,10 +51,9 @@
 
 add-edit-todo {
 	background: #fff;
-	box-shadow: 0 0 1em #ccc;
-	box-sizing: border-box;
+
 	width: 300px;
-	padding: 1em;
+
 	position: fixed;
 
 	[contenteditable=true]:empty::before {

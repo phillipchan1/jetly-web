@@ -39,6 +39,7 @@ import { OathComponent } from "./components/atoms/buttons/oath/oath.component";
 import { CalendarComponent } from "./components/molecules/calendar/calendar.component";
 import { LogoComponent } from './components/atoms/logo/logo.component';
 import { AddEditTodoComponent } from './components/molecules/add-edit-todo/add-edit-todo.component';
+import { PlusComponent } from './components/atoms/buttons/plus/plus.component';
 
 const appRoutes: Routes = [
   {
@@ -83,7 +84,8 @@ const appRoutes: Routes = [
     CalendarComponent,
     LogoComponent,
     AddEditTodoComponent,
-    ContenteditableDirective
+    ContenteditableDirective,
+    PlusComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

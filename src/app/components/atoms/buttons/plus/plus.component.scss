@@ -1,0 +1,11 @@
+@import '../../../../../styles/variables';
+
+.fa-plus-circle {
+    color: $primaryBlue;
+    transition: $transitionFast;
+
+    &:hover {
+        cursor: pointer;
+        color: darken($primaryBlue, 20%)
+    }
+}
