@@ -144,6 +144,7 @@ export class BoardComponent implements OnInit {
 	hotkeys(event) {
 	    if (event.key === 'Escape') {
 	    	this.editingTodo = false;
+	    	this.hideNewTodo();
 	    }
   	}
 

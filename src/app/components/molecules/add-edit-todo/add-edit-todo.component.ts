@@ -31,7 +31,7 @@ export class AddEditTodoComponent implements OnInit {
 		this.onChange.emit(true);
 	}
 
-	onFormChange() {
+	handleFormChange() {
 		if (this.todo && this.todo.id) {
 			this.todoService.updateTodo(this.todo.id, this.todo);
 		}

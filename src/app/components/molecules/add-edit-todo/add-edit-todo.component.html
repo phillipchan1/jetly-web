@@ -1,6 +1,6 @@
-<form class="edit-todo-container" (change)="onFormChange()">
+<form class="edit-todo-container" (change)="handleFormChange()">
 	<header>
-		<textarea class="mousetrap name" [(ngModel)]="todo && todo.name" name="name"></textarea>
+		<textarea class="mousetrap name" (keyup)="handleFormChange()" [(ngModel)]="todo && todo.name" name="name"></textarea>
 
 		<textarea class="description mousetrap" placeholder="Write a description" [(ngModel)]="todo && todo.description" name="description"></textarea>
 	</header>
