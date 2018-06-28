@@ -4,13 +4,23 @@ import { Injectable } from '@angular/core';
 export class PositionUtilsService {
     constructor() {}
 
-    public calculateLeft(el) {
-        return `${el.offsetLeft + el.offsetWidth}px`;
+    public closerToLeftorRightofScreen(el):string {
+        var windowWidth = window.innerWidth;
+
+        if (el.offsetLeft < windowWidth / 2) {
+            return 'left';
+        } else {
+            return 'right'
+        }
     }
 
-    public calculateTop(el) {
-        const inTheMiddleHeight = el.offsetTop + el.offsetHeight / 4;
+    public closerToToporBottomofScreen(el):string {
+        var windowWidth = window.innerHeight;
 
-        return `${inTheMiddleHeight}px`;
+        if (el.offsetTop < windowWidth / 2) {
+            return 'top';
+        } else {
+            return 'bottom'
+        }
     }
 }

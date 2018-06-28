@@ -16,8 +16,10 @@ import { DragulaService } from 'ng2-dragula';
 export class BoardComponent implements OnInit {
 	todos: Observable<any[]>;
 	addingNewTodo: boolean = false;
-	editingTodo: boolean = false;
+	editingTodo: boolean = false
+	public editTodoBottom: string;;
 	public editTodoLeft: string;
+	public editTodoRight: string;
 	public editTodoTop: string;
 	JSON;
 	todoFilter = { lane: 'todo', complete: false };
@@ -58,8 +60,6 @@ export class BoardComponent implements OnInit {
 			}
 		});
 
-		this.positionUtils.shout()
-
 		dragulaService.over.subscribe((value) => {
 		  	let container = value[2];
 
@@ -92,12 +92,35 @@ export class BoardComponent implements OnInit {
 
 	private showEditTodo(todo, event) {
 		var currentTodo = JSON.parse(event.target.getAttribute('data-todo')) || JSON.parse(event.target.parentNode.getAttribute('data-todo'));
-		console.log(currentTodo);
 
-		this.editTodoLeft = this.positionUtils.calculateLeft(event.target);
-		this.editTodoTop = this.positionUtils.calculateTop(event.target);
+		var element;
+
+		if (event.target.nodeName === "SPAN") {
+			element = event.target.parentNode;
+		} else {
+			element = event.target;
+		}
+
+		var elementRect = element.getBoundingClientRect();
+
+		if (this.positionUtils.closerToLeftorRightofScreen(event.target) === 'left') {
+			this.editTodoLeft = `${elementRect.left + elementRect.width}px`;
+			this.editTodoRight = 'auto';
+		} else {
+			this.editTodoLeft = 'auto';
+			this.editTodoRight = `${window.innerWidth - elementRect.left}px`;
+		}
+
+		if (this.positionUtils.closerToToporBottomofScreen(element) === 'top') {
+			this.editTodoTop = `${elementRect.top}px`;
+			this.editTodoBottom = 'auto';
+		} else {
+			this.editTodoBottom = `${window.innerHeight - elementRect.top - elementRect.height}px`;
+			this.editTodoTop = 'auto';
+		}
+
 		this.editingTodo = true;
-		this.currentlyEditingThisTodo = currentTodo
+		this.currentlyEditingThisTodo = currentTodo;
 	}
 
 	public hideEditTodo(event) {

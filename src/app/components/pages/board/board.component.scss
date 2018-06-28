@@ -52,9 +52,10 @@
 add-edit-todo {
 	background: #fff;
 	box-shadow: 0 0 1em #ccc;
+	box-sizing: border-box;
 	width: 300px;
 	padding: 1em;
-	position: absolute;
+	position: fixed;
 
 	[contenteditable=true]:empty::before {
 	  content: attr(placeholder);

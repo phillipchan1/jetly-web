@@ -57,4 +57,4 @@
     </article>
 </div>
 
-<add-edit-todo [ngStyle]="{'left': editTodoLeft, 'top': editTodoTop}" [(todo)]="currentlyEditingThisTodo" [hidden]="!editingTodo" (onChange)="onDeleteTodo()"></add-edit-todo>
+<add-edit-todo [ngStyle]="{'left': editTodoLeft, 'top': editTodoTop, 'bottom': editTodoBottom, 'right': editTodoRight}" [(todo)]="currentlyEditingThisTodo" [hidden]="!editingTodo" (onChange)="onDeleteTodo()"></add-edit-todo>
