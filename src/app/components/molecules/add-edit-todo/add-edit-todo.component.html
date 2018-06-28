@@ -2,8 +2,6 @@
 	<header>
 		<textarea class="mousetrap name" [(ngModel)]="todo && todo.name" name="name"></textarea>
 
-		{{todo?.name}}
-
 		<textarea class="description mousetrap" placeholder="Write a description" [(ngModel)]="todo && todo.description" name="description"></textarea>
 	</header>
 
@@ -23,8 +21,7 @@
 	</section>
 
 	<section class="actions">
-		<a *ngIf="todo?.id" class="btn btn-subtle warn" href="javascript:;" (click)="deleteTodo(todo.id)">Delete Task</a>
-		<button *ngIf="!todo?.id" (click)="addNewTodo()">Add Todo</button>
-		<span class="footnote">Press Enter to Save</span>
+		<a *ngIf="todo?.id" class="btn btn-subtle warn" href="javascript:;" (click)="deleteTodo(todo?.id)">Delete Task</a>
+		<span class="footnote" *ngIf="!todo?.id">Press Ctrl + Enter to Add</span>
 	</section>
 </form>

@@ -7,7 +7,6 @@ import {
 	AngularFirestoreDocument,
 	AngularFirestoreCollection
 } from 'angularfire2/firestore';
-import { HotkeysService, Hotkey } from 'angular2-hotkeys';
 
 @Component({
 	selector: "add-edit-todo",
@@ -25,13 +24,7 @@ export class AddEditTodoComponent implements OnInit {
 		public todoService: TodosService,
 		public authService: AuthService,
 		private afs: AngularFirestore,
-		private _hotkeysService: HotkeysService
-		) {
-		this._hotkeysService.add(new Hotkey('meta+enter', (event: KeyboardEvent): boolean => {
-
-	        return false; // Prevent bubbling
-	    }));
-	}
+		) {}
 
 	deleteTodo(docId) {
 		this.todoService.deleteTodo(docId);
@@ -45,26 +38,33 @@ export class AddEditTodoComponent implements OnInit {
 	}
 
 	addNewTodo() {
-		const newTodo = Object.assign({
-			onBoard: true,
-			complete: false,
-			createdOn: Date.now(),
-			lane: "todo",
-			previousLane: "",
-			startOn: Date.now(),
-			timeSpentinProgress: 0,
-			userId: this.authService.getUser().uid
-		}, this.todo);
+		if (this.todo && this.todo.name) {
 
-		this.todosCollection = this.afs.collection<Todo>('todos');
-		this.todosCollection.add(newTodo);
+			const newTodo: Todo = {
+				onBoard: true,
+				complete: false,
+				createdOn: Date.now(),
+				name: this.todo.name || '',
+				description: this.todo.description || '',
+				lane: "todo",
+				notes: this.todo.notes || '',
+				previousLane: "",
+				startOn: Date.now(),
+				timeSpentinProgress: 0,
+				userId: this.authService.getUser().uid
+			};
 
-		this.onSubmitted.emit(true);
-
-		this.todo = <Todo>{};
+			this.todosCollection = this.afs.collection<Todo>('todos');
+			this.todosCollection.add(newTodo);
+			this.onSubmitted.emit(true);
+			this.todo = <Todo>{};
+		}
 	}
 
 	hotkeys(event) {
+		if (event.ctrlKey && event.which == 13) {
+			this.addNewTodo();
+		}
 	}
 
 	ngOnInit() {

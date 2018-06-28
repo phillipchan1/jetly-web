@@ -33,6 +33,7 @@ export class NewTodoComponent implements OnInit {
       name: name,
       description: "",
       lane: "todo",
+      notes: "",
       previousLane: "",
       startOn: Date.now(),
       timeSpentinProgress: 0,
