@@ -3,4 +3,6 @@
 	<router-outlet></router-outlet>
 
 	<add-edit-todo id="global-add-edit-todo" [hidden]="!editingTodo" (onSubmitted)="hideEditTodo($event)"></add-edit-todo>
+
+    <div class="modal" *ngIf="modalActive"></div>
 </div>

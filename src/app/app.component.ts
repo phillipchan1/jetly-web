@@ -14,6 +14,15 @@ import { ClickOutsideModule } from 'ng4-click-outside';
 export class AppComponent {
 	loggedIn: boolean = false;
 	public editingTodo: boolean = false;
+	private modalActive: boolean = false;
+
+	public activateModal() {
+		this.modalActive = true;
+	}
+
+	public deactivateModal() {
+		this.modalActive = false;
+	}
 
 	constructor(private router: Router, public afAuth: AngularFireAuth) {
 		this.afAuth.authState.subscribe(res => {
@@ -26,6 +35,8 @@ export class AppComponent {
 	}
 
 	hideEditTodo(event) {
+		this.deactivateModal();
+
 		var editTodo = document.querySelector('#global-add-edit-todo');
 
 		if (event && editTodo.contains(event.target)) {
@@ -37,9 +48,9 @@ export class AppComponent {
 
 	handleNewTodo() {
 		this.editingTodo = true;
+		this.activateModal();
 
 		var editTodoName = <HTMLElement>document.querySelector('#global-add-edit-todo textarea.name');
-		console.log(editTodoName);
 
 		setTimeout(function() {
 			editTodoName.focus();
@@ -47,8 +58,13 @@ export class AppComponent {
 	}
 
 	hotkeys(event) {
-		if (event.key === 'c') {
-			this.handleNewTodo();
+		var srcElementName = event.srcElement.nodeName;
+		var ignoreInputs = ["INPUT", "TEXTAREA"];
+
+		if (!ignoreInputs.includes(srcElementName)) {
+			if (event.key === 'c') {
+				this.handleNewTodo();
+			}
 		}
 
 		if (event.key === 'Escape') {
