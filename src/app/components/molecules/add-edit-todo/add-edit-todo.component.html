@@ -8,11 +8,11 @@
 	<table>
 		<tr *ngIf="todo?.id">
 			<td>Created On:</td>
-			<td>{{todo?.createdOn}}</td>
+			<td>{{todo?.createdOn | date :'shortDate'}}</td>
 		</tr>
 		<tr *ngIf="todo?.id">
             <td>Start Working On:</td>
-            <td>{{todo?.startOn}}</td>
+            <td>{{todo?.startOn | date :'shortDate'}}</td>
         </tr>
 	</table>
 
