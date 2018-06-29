@@ -7,7 +7,7 @@
 	display: block;
 	font-weight: 400;
 	margin: 0.5em 0 0.5em;
-	padding: 1em 0 1em 3em;
+	padding: 9px 23px 9px 3em;
 	position: relative;
 	width: 100%;
 
@@ -19,6 +19,19 @@
 
 		&:focus {
 			outline: none;
+		}
+	}
+
+	.todo-menu-trigger {
+		opacity: 0.1;
+		position: absolute;
+		right: 10px;
+		top: 50%;
+		transform: translateY(-50%);
+
+		&:hover {
+			opacity: 0.6;
+			cursor: pointer;
 		}
 	}
 

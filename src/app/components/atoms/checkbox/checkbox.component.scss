@@ -17,7 +17,7 @@ input:hover {
 	height: 20px;
 	left: 6px;
 	position: absolute;
-	top: 7px;
+	top: 6px;
 	width: 20px;
 }
 
@@ -27,6 +27,7 @@ input:hover {
 
 input:checked ~ .checkmark {
 	background-color: #bd99a0;
+	border: 1px solid transparent;
 }
 
 input:checked ~ .checkmark:after {

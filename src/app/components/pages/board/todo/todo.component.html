@@ -1,3 +1,7 @@
 <checkbox (onStatusChange)="completeStatusChange($event, todo)" [(status)]="todo.complete"></checkbox>
 
-<span class="todo-name " contenteditable="true" (blur)="changeName($event, todo)">{{todo.name}}</span>
+<span class="todo-name " contenteditable="true" (blur)="changeName($event, todo)">
+    {{todo.name}}
+</span>
+
+<i (click)="handleMenuClick($event)" class="todo-menu-trigger fas fa-ellipsis-v"></i>

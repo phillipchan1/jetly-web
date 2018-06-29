@@ -36,7 +36,7 @@ export class BoardComponent implements OnInit {
 		public positionUtils: PositionUtilsService,
 		public todoService: TodosService,
 		private dragulaService: DragulaService,
-		private router: Router
+		private router: Router,
 		private keyboardUtilsService: KeyboardUtilsService
 	) {
 		dragulaService.drop.subscribe(value => {
@@ -101,7 +101,7 @@ export class BoardComponent implements OnInit {
 
 		var padding = 10;
 
-		if (event.target.nodeName === "SPAN") {
+		if (event.target.nodeName === "SPAN" || event.target.nodeName === "I" ) {
 			element = event.target.parentNode;
 		} else {
 			element = event.target;
@@ -109,7 +109,7 @@ export class BoardComponent implements OnInit {
 
 		var elementRect = element.getBoundingClientRect();
 
-		if (this.positionUtils.closerToLeftorRightofScreen(event.target) === 'left') {
+		if (this.positionUtils.closerToLeftorRightofScreen(element) === 'left') {
 			this.editTodoLeft = `${elementRect.left + elementRect.width + padding}px`;
 			this.editTodoRight = 'auto';
 		} else {
