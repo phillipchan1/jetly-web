@@ -2,6 +2,9 @@
 
 $bodyFontSize: 13px;
 
+/* ---------- Elevation ---------- */
+$elevation1: 0 0 1em #ccc;
+
 /* ---------- Spacing ---------- */
 
 $largeSpacing: 3em;
@@ -25,6 +28,7 @@ $whiteFadedHover: rgba(255, 255, 255, 0.8);
 
 // grays
 $gray: rgba(91, 91, 91, 1);
+$grayLight: rgba(140, 140, 140, 1);
 $grayFaded: rgba(91, 91, 91, 0.5);
 $graySuperFaded: rgba(91, 91, 91, 0.2);
 $grayBlueLight: #ecf2f6;

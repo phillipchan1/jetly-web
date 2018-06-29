@@ -1,0 +1,10 @@
+tooltip.tooltip {
+    background: $activeBlue;
+    color: #FFF;
+    padding: 1em;
+    box-shadow: $elevation1;
+
+    &:after {
+        border-color: transparent transparent $activeBlue transparent !important;
+    }
+}

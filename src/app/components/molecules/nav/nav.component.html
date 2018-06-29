@@ -8,7 +8,7 @@
 		<a routerLink="/plan">Plan</a>
 	</div>
 	<div class="auxiliary-menu">
-		<plus-button (onClick)="handleNewTodo()"></plus-button>
+		<plus-button tooltip="New Todo (c)" placement="bottom" (onClick)="handleNewTodo()"></plus-button>
 		<a (click)="logout() ">Logout</a>
 	</div>
 </nav>

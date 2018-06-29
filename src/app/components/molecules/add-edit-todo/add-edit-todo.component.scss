@@ -1,6 +1,8 @@
+@import '../../../../styles/variables';
+
 .edit-todo-container {
 	background: #FFF;
-	box-shadow: 0 0 1em #ccc;
+	box-shadow: $elevation1;
 	box-sizing: border-box;
 	padding: 1em;
 	display: flex;
