@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CalendarModule } from "angular-calendar";
 import { ContenteditableDirective } from 'ng-contenteditable';
 import { HotkeyModule } from 'angular2-hotkeys';
+import { NgDatepickerModule } from 'ng2-datepicker';
 
 // filters
 import { LaneFilter } from "./filters/lane.filter";
@@ -24,6 +25,7 @@ import { TodosService } from "./services/todos/todos.service";
 import { AuthService } from "./services/auth/auth.service";
 import { DateUtilsService } from "./services/utils/date-utils.service";
 import { PositionUtilsService } from "./services/utils/position-utils.service";
+import { KeyboardUtilsService } from "./services/utils/keyboard-utils.service";
 import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
@@ -100,9 +102,16 @@ const appRoutes: Routes = [
     FormsModule,
     HotkeyModule.forRoot(),
     HttpModule,
+    NgDatepickerModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [AuthService, TodosService, DateUtilsService, PositionUtilsService],
+  providers: [
+    AuthService,
+    TodosService,
+    DateUtilsService,
+    PositionUtilsService,
+    KeyboardUtilsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

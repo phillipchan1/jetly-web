@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
-
+import { KeyboardUtilsService } from './services/utils/keyboard-utils.service'
 
 @Component({
 	selector: 'app-root',
@@ -26,7 +26,8 @@ export class AppComponent {
 
 	constructor(
 		private router: Router,
-		public afAuth: AngularFireAuth
+		public afAuth: AngularFireAuth,
+		public keyboardUtilsService: KeyboardUtilsService
 	) {
 		this.afAuth.authState.subscribe(res => {
 			if (!res || !res.uid) {
@@ -64,7 +65,7 @@ export class AppComponent {
 		var srcElementName = event.srcElement.nodeName;
 		var ignoreInputs = ["INPUT", "TEXTAREA"];
 
-		if (!ignoreInputs.includes(srcElementName)) {
+		if (!this.keyboardUtilsService.shouldIgnore(srcElementName)) {
 			if (event.key === 'c') {
 				this.handleNewTodo();
 			}

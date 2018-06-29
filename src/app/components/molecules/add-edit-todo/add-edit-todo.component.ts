@@ -39,6 +39,7 @@ export class AddEditTodoComponent implements OnInit {
 
 	addNewTodo() {
 		if (this.todo && this.todo.name) {
+			console.log(this.todo);
 
 			const newTodo: Todo = {
 				onBoard: true,

@@ -12,7 +12,10 @@
 		</tr>
 		<tr>
             <td>Scheduled For:</td>
-            <td><input type="date" name="startOn" (ngModelChange)="todo.scheduledFor = $event" [ngModel]="todo && todo.scheduledFor | date:'yyyy-MM-dd'" /></td>
+<!--             <td><input type="date" name="startOn" (ngModelChange)="todo.scheduledFor = $event" [ngModel]="todo && todo.scheduledFor | date:'yyyy-MM-dd'" /></td> -->
+
+
+			 <ng-datepicker name="scheduledFor" [(ngModel)]="todo && todo.scheduledFor"></ng-datepicker>
         </tr>
 	</table>
 

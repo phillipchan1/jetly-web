@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { TodosService } from '../../../services/todos/todos.service';
-import { Observable } from 'rxjs/Observable';
 import { AngularFirestore } from 'angularfire2/firestore';
-import { Todo } from '../../../services/todos/todos.model';
 import { AuthService } from '../../../services/auth/auth.service';
-import { PositionUtilsService } from '../../../services/utils/position-utils.service';
+import { Component, OnInit } from '@angular/core';
 import { DragulaService } from 'ng2-dragula';
+import { KeyboardUtilsService } from '../../../services/utils/keyboard-utils.service'
+import { Observable } from 'rxjs/Observable';
+import { PositionUtilsService } from '../../../services/utils/position-utils.service';
+import { Router } from '@angular/router'
+import { Todo } from '../../../services/todos/todos.model';
+import { TodosService } from '../../../services/todos/todos.service';
 
 @Component({
 	selector: 'app-board',
@@ -33,7 +35,9 @@ export class BoardComponent implements OnInit {
 		public authService: AuthService,
 		public positionUtils: PositionUtilsService,
 		public todoService: TodosService,
-		private dragulaService: DragulaService
+		private dragulaService: DragulaService,
+		private router: Router
+		private keyboardUtilsService: KeyboardUtilsService
 	) {
 		dragulaService.drop.subscribe(value => {
 			const currentTodo = value[1];
@@ -142,10 +146,21 @@ export class BoardComponent implements OnInit {
 	}
 
 	hotkeys(event) {
-	    if (event.key === 'Escape') {
-	    	this.editingTodo = false;
-	    	this.hideNewTodo();
-	    }
+		var srcElementName = event.srcElement.nodeName;
+
+		if (this.router.url === '/board') {
+		    if (event.key === 'Escape') {
+		    	this.editingTodo = false;
+		    	this.hideNewTodo();
+		    }
+
+		    if (!this.keyboardUtilsService.shouldIgnore(srcElementName)) {
+		    	if (event.key === 'q') {
+		    		event.preventDefault();
+		    		this.showNewTodoInput();
+		    	}
+		    }
+		}
   	}
 
 	showNewTodoInput() {
